@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+
 // ** React Import
 import { Children } from 'react'
 
@@ -64,5 +66,4 @@ CustomDocument.getInitialProps = async ctx => {
     styles: [...Children.toArray(initialProps.styles), ...emotionStyleTags]
   }
 }
-
 export default CustomDocument
