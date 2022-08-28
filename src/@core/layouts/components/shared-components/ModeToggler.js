@@ -15,7 +15,9 @@ const ModeToggler = props => {
   const handleModeToggle = () => {
     if (settings.mode === 'light') {
       handleModeChange('dark')
+      localStorage.setItem('mode', 'dark')
     } else {
+      localStorage.setItem('mode', 'light')
       handleModeChange('light')
     }
   }

@@ -50,7 +50,6 @@ if (themeConfig.routingLoader) {
 // ** Configure JSS & ClassName
 const App = (props) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-
   // Variables
   const getLayout =
     Component.getLayout ?? ((page) => <UserLayout>{page}</UserLayout>);
@@ -75,7 +74,7 @@ const App = (props) => {
           <SettingsConsumer>
             {({ settings }) => {
               return (
-                <ThemeComponent settings={settings}>
+                <ThemeComponent settings={{ ...settings}}>
                   {getLayout(<Component {...pageProps} />)}
                 </ThemeComponent>
               );
