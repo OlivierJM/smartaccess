@@ -6,8 +6,8 @@ import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import AddAlertIcon from '@mui/icons-material/AddAlert';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 
 const navigation = () => {
   return [
@@ -35,9 +35,9 @@ const navigation = () => {
       path: '/accessbook'
     },
     {
-      title: 'House Holds',
+      title: 'Properties',
       icon: MapsHomeWorkIcon,
-      path: '/houses',
+      path: '/properties',
     },
     {
       title: 'Announcements',

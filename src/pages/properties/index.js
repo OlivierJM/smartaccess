@@ -22,6 +22,7 @@ const UserList = () => {
   const { data } = useSWR(`/api/users`);
 
   return (
+    <Card>
       <TableContainer>
         <Table sx={{ minWidth: 800 }} aria-label="table in dashboard">
           <TableHead>
@@ -79,6 +80,7 @@ const UserList = () => {
           </TableBody>
         </Table>
       </TableContainer>
+    </Card>
   );
 };
 
