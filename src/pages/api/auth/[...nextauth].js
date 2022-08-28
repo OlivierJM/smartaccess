@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import GoogleProvider from "next-auth/providers/google"
 import FacebookProvider from "next-auth/providers/facebook";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
-import client from "../../../lib/db"
+import client from "../../../../lib/db"
 
 export default NextAuth({
   secret: process.env.SECRET,
@@ -23,4 +23,8 @@ export default NextAuth({
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     }),
   ],
+  pages: {
+    signIn: "/login",
+  },
 });
+
