@@ -30,6 +30,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 // ** Global css styles
 import '../../styles/globals.css';
 import { SessionProvider } from 'next-auth/react';
+import { SWRConfig } from 'swr';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -64,6 +65,12 @@ const App = (props) => {
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
 
+        <SWRConfig
+          value={{
+            fetcher: (resource, init) =>
+              fetch(resource, init).then((res) => res.json()),
+          }}
+        >
         <SettingsProvider>
           <SettingsConsumer>
             {({ settings }) => {
@@ -75,6 +82,7 @@ const App = (props) => {
             }}
           </SettingsConsumer>
         </SettingsProvider>
+        </SWRConfig>
       </SessionProvider>
     </CacheProvider>
   );

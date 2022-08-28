@@ -39,8 +39,7 @@ const LoginPage = ({ providers, csrfToken }) => {
     facebook: Facebook
   }
 
-  console.log(session)
-  if (session.data.user) {
+  if (session.data?.user) {
     router.push('/')
   }
 
@@ -182,14 +181,6 @@ LoginPage.getInitialProps = async (context) => {
   const providers = await getProviders()
   const csrfToken = await getCsrfToken(context)
   const session = await getSession({ req });
-
-  if (session && res && session.accessToken) {
-    res.writeHead(302, {
-      Location: '/',
-    });
-    res.end();
-    return;
-  }
 
   return {
     session: undefined,

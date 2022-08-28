@@ -21,8 +21,10 @@ import StatisticsCard from 'src/views/dashboard/StatisticsCard'
 import WeeklyOverview from 'src/views/dashboard/WeeklyOverview'
 import DepositWithdraw from 'src/views/dashboard/DepositWithdraw'
 import SalesByCountries from 'src/views/dashboard/SalesByCountries'
+import { getSession } from 'next-auth/react'
 
 const Dashboard = () => {
+
   return (
     <ApexChartWrapper>
       <Grid container spacing={6}>
@@ -96,6 +98,24 @@ const Dashboard = () => {
       </Grid>
     </ApexChartWrapper>
   )
+}
+
+
+export async function getServerSideProps({ req, res }) {
+  const session = await getSession({ req });
+  if (!session?.user) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {
+      session
+    }
+  }
 }
 
 export default Dashboard

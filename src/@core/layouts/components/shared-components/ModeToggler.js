@@ -1,8 +1,8 @@
 import IconButton from '@mui/material/IconButton'
 
 // ** Icons Imports
-import WeatherNight from 'mdi-material-ui/WeatherNight'
-import WeatherSunny from 'mdi-material-ui/WeatherSunny'
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
+import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
 
 const ModeToggler = props => {
   // ** Props
@@ -22,7 +22,7 @@ const ModeToggler = props => {
 
   return (
     <IconButton color='inherit' aria-haspopup='true' onClick={handleModeToggle}>
-      {settings.mode === 'dark' ? <WeatherSunny /> : <WeatherNight />}
+      {settings.mode === 'dark' ? <WbSunnyOutlinedIcon /> : <ModeNightOutlinedIcon />}
     </IconButton>
   )
 }

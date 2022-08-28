@@ -1,19 +1,19 @@
-// ** Icon imports
-import Table from 'mdi-material-ui/Table'
-import CubeOutline from 'mdi-material-ui/CubeOutline'
-import HomeOutline from 'mdi-material-ui/HomeOutline'
-import FormatLetterCase from 'mdi-material-ui/FormatLetterCase'
-import CreditCardOutline from 'mdi-material-ui/CreditCardOutline'
-import AccountPlusOutline from 'mdi-material-ui/AccountPlusOutline'
-import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
-import GoogleCirclesExtended from 'mdi-material-ui/GoogleCirclesExtended'
-import AccountDetailsOutline from 'mdi-material-ui/AccountDetailsOutline'
+
+import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import GroupsIcon from '@mui/icons-material/Groups';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
+import AddAlertIcon from '@mui/icons-material/AddAlert';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
 const navigation = () => {
   return [
     {
       title: 'Dashboard',
-      icon: HomeOutline,
+      icon: GridViewOutlinedIcon,
       path: '/'
     },
     {
@@ -21,46 +21,43 @@ const navigation = () => {
     },
     {
       title: 'Users',
-      icon: AccountDetailsOutline,
-      path: '/login',
+      icon: GroupsIcon,
+      path: '/users',
     },
     {
-      title: 'Register',
-      icon: AccountPlusOutline,
-      path: '/pages/register',
+      title: 'Guests',
+      icon: PeopleOutlineIcon,
+      path: '/guests',
     },
     {
-      title: 'Error',
-      icon: AlertCircleOutline,
-      path: '/pages/error',
+      title: 'AccessBook',
+      icon: MenuBookIcon,
+      path: '/accessbook'
     },
     {
-      sectionTitle: 'User Interface'
+      title: 'House Holds',
+      icon: MapsHomeWorkIcon,
+      path: '/houses',
     },
     {
-      title: 'Typography',
-      icon: FormatLetterCase,
-      path: '/typography'
+      title: 'Announcements',
+      icon: AddAlertIcon,
+      path: '/announcements'
     },
     {
-      title: 'Icons',
-      path: '/icons',
-      icon: GoogleCirclesExtended
+      title: 'User Feedback',
+      icon: RateReviewIcon,
+      path: '/feedback'
     },
     {
-      title: 'Cards',
-      icon: CreditCardOutline,
-      path: '/cards'
+      icon: SettingsOutlinedIcon,
+      title: 'Settings',
+      path: '/settings'
     },
     {
-      title: 'Tables',
-      icon: Table,
-      path: '/tables'
-    },
-    {
-      icon: CubeOutline,
-      title: 'Form Layouts',
-      path: '/form-layouts'
+      icon: LogoutOutlinedIcon,
+      title: 'Logout',
+      path: '/logout'
     }
   ]
 }
