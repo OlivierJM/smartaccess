@@ -20,9 +20,12 @@ const user = new Schema({
   alternativeNumber: {
     type: String,
     unique: true,
+    required: false,
+  },
+  communityId: {
+    type: Schema.Types.ObjectId,
     required: true,
   },
-  communityId: Schema.Types.ObjectId,
   createdAt: {
     type: Date,
     default: Date.now,
@@ -47,7 +50,11 @@ const user = new Schema({
   theme: {
     type: String,
     enum: ['light', 'night'],
-  }
+  },
+  // association
+  accesslogs: [{ type: Schema.Types.ObjectId, ref: 'AccessLog' }],
+  community: { type: Schema.Types.ObjectId, ref: 'Community' }, // To be tested properly
+  announcements: [{ type: Schema.Types.ObjectId, ref: 'Announcement' }], // To be tested properly
 });
 
 mongoose.models = {};

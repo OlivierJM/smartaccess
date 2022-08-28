@@ -45,9 +45,9 @@ const navigation = () => {
       path: '/announcements'
     },
     {
-      title: 'User Feedback',
+      title: 'Reports',
       icon: RateReviewIcon,
-      path: '/feedback'
+      path: '/reports'
     },
     {
       icon: SettingsOutlinedIcon,

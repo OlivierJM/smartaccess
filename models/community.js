@@ -12,7 +12,11 @@ const community = new Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  // Associations
+  users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  accesslogs: [{ type: Schema.Types.ObjectId, ref: 'AccessLog' }],
+  announcements: [{ type: Schema.Types.ObjectId, ref: 'Announcement' }],
 })
 
 mongoose.models = {}

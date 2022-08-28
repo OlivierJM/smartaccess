@@ -15,7 +15,8 @@ import dayjs from 'dayjs';
 
 const statusObj = {
   active: { color: 'primary' },
-  deactivated: { color: 'error' },
+  inactive: { color: 'error' },
+  pending: { color: 'warning' },
 };
 
 const UserList = () => {

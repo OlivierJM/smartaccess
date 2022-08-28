@@ -5,7 +5,7 @@ import User from '../../../../models/user';
 export async function handler(_req, res) {
   let response;
   try {
-    response = await User.find({ role: { $in: ['resident', 'admin'] }}).sort({ createdAt: 1 })
+    response = await User.find({ role: 'guest' }).sort({ createdAt: 1 });
     return res.status(200).send(response);
   } catch (error) {
     return res.status(500).send(error.message);

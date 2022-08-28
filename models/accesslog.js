@@ -12,10 +12,6 @@ const accesslog = new Schema({
     type: Schema.Types.ObjectId,
     required: true,
   },
-  userId: {
-    type: Schema.Types.ObjectId,
-    required: true,
-  },
   visitationDate: {
     type: Date,
     required: true,
@@ -44,10 +40,15 @@ const accesslog = new Schema({
     type: String,
     enum: ['active', 'cancelled'],
   },
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
 });
 
 mongoose.models = {};
