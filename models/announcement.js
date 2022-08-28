@@ -1,20 +1,20 @@
-import mongoose from 'mongoose'
-const Schema = mongoose.Schema
+import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
 // To be extended with a proper Announcement schema
 const announcement = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   body: {
     type: String,
-    required: true
+    required: true,
   },
   target: {
     type: [String],
     default: ['resident'],
-    required: true
+    required: true,
   },
   userId: {
     type: Schema.Types.ObjectId,
@@ -22,15 +22,15 @@ const announcement = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
-//  associations
+  //  associations
   author: { type: Schema.Types.ObjectId, ref: 'User' },
-//   users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-})
+  community: { type: Schema.Types.ObjectId, ref: 'Community' },
+});
 
-mongoose.models = {}
+mongoose.models = {};
 
-const Announcement = mongoose.model('Announcement', announcement)
+const Announcement = mongoose.model('Announcement', announcement);
 
-export default Announcement
+export default Announcement;

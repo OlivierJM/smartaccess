@@ -22,10 +22,6 @@ const user = new Schema({
     unique: true,
     required: false,
   },
-  communityId: {
-    type: Schema.Types.ObjectId,
-    required: true,
-  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -52,6 +48,7 @@ const user = new Schema({
     enum: ['light', 'night'],
   },
   // association
+  reports: [{ type: Schema.Types.ObjectId, ref: 'Report' }],
   accesslogs: [{ type: Schema.Types.ObjectId, ref: 'AccessLog' }],
   community: { type: Schema.Types.ObjectId, ref: 'Community' }, // To be tested properly
   announcements: [{ type: Schema.Types.ObjectId, ref: 'Announcement' }], // To be tested properly

@@ -15,6 +15,7 @@ const community = new Schema({
   },
   // Associations
   users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  reports: [{ type: Schema.Types.ObjectId, ref: 'Report' }],
   accesslogs: [{ type: Schema.Types.ObjectId, ref: 'AccessLog' }],
   announcements: [{ type: Schema.Types.ObjectId, ref: 'Announcement' }],
 })
