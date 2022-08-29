@@ -10,8 +10,11 @@ import TableCell from '@mui/material/TableCell';
 import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
 import useSWR from 'swr';
-import { Avatar } from '@mui/material';
+import { Avatar, Button } from '@mui/material';
 import dayjs from 'dayjs';
+import { useState } from 'react';
+import Dialog from 'src/views/custom-dialog';
+import UserForm from 'src/views/form-layouts/UserForm';
 
 const statusObj = {
   active: { color: 'primary' },
@@ -21,8 +24,14 @@ const statusObj = {
 
 const UserList = () => {
   const { data } = useSWR(`/api/users`);
+  const [open, setOpen] = useState(false)
 
   return (
+    <>
+    <Dialog title="Add User" dialogStatus={{open, setOpen}} >
+      <UserForm />
+    </Dialog>
+    <Button onClick={() => setOpen(true)}>Add User</Button>
       <TableContainer>
         <Table sx={{ minWidth: 800 }} aria-label="table in dashboard">
           <TableHead>
@@ -80,6 +89,7 @@ const UserList = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      </>
   );
 };
 

@@ -24,8 +24,8 @@ import {
 // ** Utils Imports
 import { createEmotionCache } from 'src/@core/utils/create-emotion-cache';
 
-// ** React Perfect Scrollbar Style
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import 'react-datepicker/dist/react-datepicker.css'
 
 // ** Global css styles
 import '../../styles/globals.css';
