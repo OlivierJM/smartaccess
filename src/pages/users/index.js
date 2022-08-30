@@ -24,14 +24,16 @@ const statusObj = {
 
 const UserList = () => {
   const { data } = useSWR(`/api/users`);
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [formaData, setData] = useState({});
 
+  console.log(formaData);
   return (
     <>
-    <Dialog title="Add User" dialogStatus={{open, setOpen}} >
-      <UserForm />
-    </Dialog>
-    <Button onClick={() => setOpen(true)}>Add User</Button>
+      <Dialog title="Add User" dialogStatus={{ open, setOpen }}>
+        <UserForm formData={formaData} setData={setData} />
+      </Dialog>
+      <Button onClick={() => setOpen(true)}>Add User</Button>
       <TableContainer>
         <Table sx={{ minWidth: 800 }} aria-label="table in dashboard">
           <TableHead>
@@ -58,13 +60,9 @@ const UserList = () => {
                     referrerPolicy="no-referrer"
                   />
                 </TableCell>
-                <TableCell
-                  sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}
-                >
+                <TableCell sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}>
                   <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                    <Typography
-                      sx={{ fontWeight: 500, fontSize: '0.875rem !important' }}
-                    >
+                    <Typography sx={{ fontWeight: 500, fontSize: '0.875rem !important' }}>
                       {row.name}
                     </Typography>
                     <Typography variant="caption">{row.designation}</Typography>
@@ -83,13 +81,13 @@ const UserList = () => {
                     }}
                   />
                 </TableCell>
-                <TableCell>{dayjs(row.createdAt).format('DD/MM/YYYY') }</TableCell>
+                <TableCell>{dayjs(row.createdAt).format('DD/MM/YYYY')}</TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      </>
+    </>
   );
 };
 
