@@ -15,7 +15,8 @@ import dayjs from 'dayjs';
 
 const statusObj = {
   active: { color: 'primary' },
-  deactivated: { color: 'error' },
+  inactive: { color: 'error' },
+  pending: { color: 'warning' },
 };
 
 const UserList = () => {
@@ -49,13 +50,9 @@ const UserList = () => {
                     referrerPolicy="no-referrer"
                   />
                 </TableCell>
-                <TableCell
-                  sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}
-                >
+                <TableCell sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}>
                   <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                    <Typography
-                      sx={{ fontWeight: 500, fontSize: '0.875rem !important' }}
-                    >
+                    <Typography sx={{ fontWeight: 500, fontSize: '0.875rem !important' }}>
                       {row.name}
                     </Typography>
                     <Typography variant="caption">{row.designation}</Typography>
@@ -74,7 +71,7 @@ const UserList = () => {
                     }}
                   />
                 </TableCell>
-                <TableCell>{dayjs(row.createdAt).format('DD/MM/YYYY') }</TableCell>
+                <TableCell>{dayjs(row.createdAt).format('DD/MM/YYYY')}</TableCell>
               </TableRow>
             ))}
           </TableBody>

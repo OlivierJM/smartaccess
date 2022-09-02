@@ -21,9 +21,7 @@
     "formulahendry.auto-rename-tag",
     "yzhang.markdown-all-in-one",
     "davidanson.vscode-markdownlint",
-    "coenraads.bracket-pair-colorizer",
     "chakrounanas.turbo-console-log",
-    "planbcoding.vscode-react-refactor",
-    "github.copilot"
+    "planbcoding.vscode-react-refactor"
   ]
 }
