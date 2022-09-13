@@ -1,6 +1,5 @@
 // ** MUI Imports
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 import Chip from '@mui/material/Chip';
 import Table from '@mui/material/Table';
 import TableRow from '@mui/material/TableRow';
@@ -9,6 +8,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
+import EditIcon from '@mui/icons-material/Edit';
 import useSWR from 'swr';
 import { Avatar, Button } from '@mui/material';
 import dayjs from 'dayjs';
@@ -26,11 +26,38 @@ const UserList = () => {
   const { data } = useSWR(`/api/users`);
   const [open, setOpen] = useState(false);
   const [formaData, setData] = useState({});
+  const [modalType, setModalType] = useState('add');
 
-  console.log(formaData);
+  const type = {
+    add: 'Add user',
+    update: 'Update User',
+  };
+
+  function handleEditUser(row, type) {
+    setData(row);
+    setOpen(!open);
+    setModalType(type);
+  }
+
+  function handleSave(type) {
+    console.log(type);
+    reset();
+  }
+
+  function reset() {
+    setData({});
+    setOpen(!open);
+    setModalType('add');
+  }
+
   return (
     <>
-      <Dialog title="Add User" dialogStatus={{ open, setOpen }}>
+      <Dialog
+        title={type[modalType]}
+        dialogStatus={{ open, setOpen, modalType }}
+        handleSave={handleSave}
+        reset={reset}
+      >
         <UserForm formData={formaData} setData={setData} />
       </Dialog>
       <Button onClick={() => setOpen(true)}>Add User</Button>
@@ -43,6 +70,7 @@ const UserList = () => {
               <TableCell>Email</TableCell>
               <TableCell>Status</TableCell>
               <TableCell>Date Enrolled</TableCell>
+              <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -82,6 +110,11 @@ const UserList = () => {
                   />
                 </TableCell>
                 <TableCell>{dayjs(row.createdAt).format('DD/MM/YYYY')}</TableCell>
+                <TableCell>
+                  <Button onClick={() => handleEditUser(row, 'update')}>
+                    <EditIcon />
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
